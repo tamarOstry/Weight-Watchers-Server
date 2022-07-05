@@ -1,3 +1,26 @@
-const app=require('express');
+const express = require('express');
+const app = express();
+const account = require('./routes/account');
+const user = require('./routes/user');
+const meeting = require('./routes/meeting');
+const diary = require('./routes/diary');
+require('dotenv').config();
+const port = process.env.PORT;
 
-console.log("hello world")
+app.use(express.json());
+app.use('/account ', account);
+app.use('/user', user);
+app.use('/meeting ', meeting);
+// app.use('/diary ', diary);
+
+app.use((req,res)=>{
+    res.status(404).sendFile(path.join(__dirname,'./static/HTML/404.html'));
+  })
+
+app.use((err, req, res, next) => {
+    res.status(500).send('something failed')
+})
+
+app.listen(port, () => {
+    console.log(`the server go on ${port}`)
+})

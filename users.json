@@ -1,114 +1,393 @@
-{
-    "manager": {
-        "name": "Jon",
-        "email": "s@gmail.com",
-        "phone": "0543544909"
+[
+  {
+    "id": 1,
+    "password": 12,
+    "firstName": "esti",
+    "lastName": "tofik",
+    "address": {
+      "city": "jerusalem",
+      "street": "geula",
+      "number": 5
     },
-    "users": [
+    "phone": "0504139123",
+    "email": "et@gmail.com",
+    "hight": 1.6,
+    "weight": {
+      "startWeight": 40.5,
+      "meeting": [
         {
-            "id": 1,
-            "firstName": "tami",
-            "lastName": "levi",
-            "address": {
-                "city": "jerusalem",
-                "street": "shamgar",
-                "number": "5"
-            },
-            "phone": "0533145420",
-            "email": "tl@gmail.com",
-            "height": "1.6",
-            "weight": {
-                "meetings": [
-                    {
-                        "date": "01-02-2022",
-                        "weight": 71
-                    },
-                    {
-                        "date": "01-03-2022",
-                        "weight": 79
-                    },
-                    {
-                        "date": "2022-07-03",
-                        "weight": "50",
-                        "comments": "good! you work perfect!",
-                        "visit": true
-                    }
-                ]
-            },
-            "diary": [
-                {
-                    "date": "01-03-2022",
-                    "summery": [
-                        "tomato",
-                        "ice cream"
-                    ]
-                },
-                {
-                    "date": "2022-07-02",
-                    "summery": [
-                        "bread\npaper\n"
-                    ]
-                }
-            ]
+          "Weight": 45.5,
+          "date": "2015-07-05"
         },
         {
-            "id": 2,
-            "firstName": "shani",
-            "lastName": "cohen",
-            "address": {
-                "city": "bnei brak",
-                "street": "rabi akiva",
-                "number": 90
-            },
-            "phone": "0556780532",
-            "email": "scohen@gmail.com",
-            "height": "1.7",
-            "weight": {
-                "start": 100,
-                "meetings": [
-                    {
-                        "date": "01-01-2022",
-                        "weight": 79
-                    },
-                    {
-                        "date": "01-02-2022",
-                        "weight": 70
-                    }
-                ]
-            },
-            "diary": [
-                {
-                    "date": "01-03-2022",
-                    "summery": [
-                        "bread"
-                    ]
-                }
-            ]
+          "Weight": 40.7,
+          "date": "2015-08-05"
         },
         {
-            "firstName": "lea",
-            "lastName": "frid",
-            "address": {
-                "city": "jerusalem",
-                "street": "hpisga",
-                "number": "8"
-            },
-            "phone": "0527683596",
-            "email": "lf@D0533149058",
-            "height": "1.70",
-            "weight": {
-                "start": "70",
-                "meetings": []
-            },
-            "diary": [
-                {
-                    "date": "2022-07-02",
-                    "summery": [
-                        "bread"
-                    ]
-                }
-            ],
-            "id": 3
+          "Weight": 40.5,
+          "date": "2015-09-05"
+        },
+        {
+          "Weight": 44.3,
+          "date": "2015-10-05"
         }
+      ]
+    },
+    "eatingDiary": [
+      {
+        "date": "2015-07-05",
+        "meals": [
+          {
+            "Foods": [
+              "חלב",
+              "בננה",
+              "שוקולד"
+            ]
+          },
+          {
+            "Foods": [
+              "גבינה",
+              "לחם",
+              "טונה"
+            ]
+          },
+          {
+            "Foods": [
+              "חלב",
+              "עוגיה",
+              "שוקולד"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2015-07-05",
+        "meals": [
+          {
+            "Foods": [
+              "חלב",
+              "בננה",
+              "שוקולד"
+            ]
+          },
+          {
+            "Foods": [
+              "גבינה",
+              "לחם",
+              "טונה"
+            ]
+          },
+          {
+            "Foods": [
+              "חלב",
+              "עוגיה",
+              "שוקולד"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2022-07-02",
+        "meals": [
+          {
+            "Foods": [
+              "שוקולד",
+              "חלב"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2022-07-03",
+        "meals": [
+          {
+            "Foods": [
+              "בורגול, מבושל עם שעועית לבנה ועגבניות",
+              "חלב 3% שומן, מועשר בסידן, תנובה,טרה,יטבתה"
+            ]
+          }
+        ]
+      }
     ]
-}
+  },
+  {
+    "id": 2,
+    "password": 34,
+    "firstName": "yehudit",
+    "lastName": "cohen",
+    "address": {
+      "city": "rechovot",
+      "street": "arimon",
+      "number": "110"
+    },
+    "phone": "0558963214",
+    "email": "rk@gmail.com",
+    "hight": "1.75",
+    "weight": {
+      "startWeight": 73,
+      "meeting": [
+        {
+          "Weight": 70.1,
+          "date": "2015-07-05"
+        },
+        {
+          "Weight": 70.7,
+          "date": "2015-08-05"
+        },
+        {
+          "Weight": 70,
+          "date": "2015-09-05"
+        },
+        {
+          "Weight": 75.3,
+          "date": "2015-10-05"
+        }
+      ]
+    },
+    "eatingDiary": [
+      {
+        "date": "2015-07-05",
+        "meals": [
+          {
+            "Foods": [
+              "חלב",
+              "בננה",
+              "שוקולד"
+            ]
+          },
+          {
+            "Foods": [
+              "גבינה",
+              "לחם",
+              "טונה"
+            ]
+          },
+          {
+            "Foods": [
+              "חלב",
+              "עוגיה",
+              "שוקולד"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2015-07-05",
+        "meals": [
+          {
+            "Foods": [
+              "חלב",
+              "בננה",
+              "שוקולד"
+            ]
+          },
+          {
+            "Foods": [
+              "גבינה",
+              "לחם",
+              "טונה"
+            ]
+          },
+          {
+            "Foods": [
+              "חלב",
+              "עוגיה",
+              "שוקולד"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "password": 56,
+    "firstName": "tova",
+    "lastName": "levi",
+    "address": {
+      "city": "jerusalem",
+      "street": "bait vagan",
+      "number": "50"
+    },
+    "phone": "0536985214",
+    "email": "tl@gmail.com",
+    "hight": "1.64",
+    "weight": {
+      "startWeight": 73,
+      "meeting": [
+        {
+          "Weight": 65.5,
+          "date": "2015-07-05"
+        },
+        {
+          "Weight": 65.7,
+          "date": "2015-08-05"
+        },
+        {
+          "Weight": 65,
+          "date": "2015-09-05"
+        },
+        {
+          "Weight": 64.3,
+          "date": "2015-10-05"
+        }
+      ]
+    },
+    "eatingDiary": [
+      {
+        "date": "2015-07-05",
+        "meals": [
+          {
+            "Foods": [
+              "חלב",
+              "בננה",
+              "שוקולד"
+            ]
+          },
+          {
+            "Foods": [
+              "גבינה",
+              "לחם",
+              "טונה"
+            ]
+          },
+          {
+            "Foods": [
+              "חלב",
+              "עוגיה",
+              "שוקולד"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2015-07-05",
+        "meals": [
+          {
+            "Foods": [
+              "חלב",
+              "בננה",
+              "שוקולד"
+            ]
+          },
+          {
+            "Foods": [
+              "גבינה",
+              "לחם",
+              "טונה"
+            ]
+          },
+          {
+            "Foods": [
+              "חלב",
+              "עוגיה",
+              "שוקולד"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2022-06-29",
+        "meals": [
+          {
+            "Foods": [
+              "חלב",
+              "טונה"
+            ]
+          },
+          {
+            "Foods": [
+              "חומוס",
+              "חלב"
+            ]
+          },
+          {
+            "Foods": [
+              "שוקולד",
+              "חלב"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2022-06-30",
+        "meals": [
+          {
+            "Foods": [
+              "ביסקוויט"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2022-06-29",
+        "meals": [
+          {
+            "Foods": [
+              "מלפפון",
+              "פלפל",
+              "גמבה"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2022-07-29",
+        "meals": [
+          {
+            "Foods": [
+              "וופל",
+              "חלה"
+            ]
+          },
+          {
+            "Foods": [
+              "גבינה",
+              "קרקר"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2022-07-02",
+        "meals": [
+          {
+            "Foods": [
+              "אאאאאאאאא"
+            ]
+          },
+          {
+            "Foods": [
+              "חלב",
+              "לחם"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "69f18728-44ef-427d-97b3-a345bb51c1cb",
+    "password": 17,
+    "firstName": "yulu",
+    "lastName": "fogel",
+    "address": {
+      "city": "tel aviv",
+      "street": "arlozerov",
+      "number": 10
+    },
+    "phone": "058789654",
+    "email": "yf@gmail.com",
+    "hight": 1.6,
+    "weight": {
+      "startWeight": 40.5,
+      "meeting": [
+        {
+          "Weight": 45.5,
+          "date": "2015-07-05"
+        }
+      ]
+    },
+    "eatingDiary": []
+  }
+]

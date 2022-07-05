@@ -1,20 +1,8 @@
-const userService=require('../services/user')
+const userService=require('../services/meeting')
 exports.getAll=async function(req,res,next){
     try{
        const users=await userService.getAll();
        res.send(users);
-    }
-    catch(err){
-      next(err)
-    };
-}
-
-exports.getBySearch=async function(req,res,next){
-    try{
-        const email = req.params.email;
-        const password = req.params.password;
-        const user=await userService.getByEmailPassword(email,password);
-        res.send(user);
     }
     catch(err){
       next(err)
@@ -55,7 +43,7 @@ exports.update=async function(req,res,next){
     };
 }
 
-exports.add= async function(req,res,next){
+exports.add=async function(req,res,next){
     try{
         const user = userService.add(req.body);
         res.send(user)
