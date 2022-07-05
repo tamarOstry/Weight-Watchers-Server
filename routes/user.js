@@ -9,3 +9,4 @@ route.post('/',controller.add);
 route.delete('/:id',controller.delete);
 
 module.exports=route;
+
