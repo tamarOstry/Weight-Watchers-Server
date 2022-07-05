@@ -1,6 +1,6 @@
 const express=require('express');
 const route=express.Router();
-const controller=require('../controller/user');
+const controller=require('../controller/meeting');
 
 route.get('/',controller.getAll);
 route.get('/:id',controller.getById);
@@ -9,4 +9,3 @@ route.post('/',controller.add);
 route.delete('/:id',controller.delete);
 
 module.exports=route;
-
