@@ -1,7 +1,7 @@
-const userService=require('../services/meeting')
+const meetingService=require('../services/meeting')
 exports.getAll=async function(req,res,next){
     try{
-       const users=await userService.getAll();
+       const users=await meetingService.getAll();
        res.send(users);
     }
     catch(err){
@@ -12,7 +12,7 @@ exports.getAll=async function(req,res,next){
 exports.getById=async function(req,res,next){
     try{
         const userId=req.params.id;
-        const user=await userService.getById(userId);
+        const user=await meetingService.getById(userId);
         res.send(user);
     }
     catch(err){
