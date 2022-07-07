@@ -6,6 +6,7 @@ const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(
 const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
 
 module.exports.getAll=async()=>{
+    debugger
     const dataFromJson = await getData(); 
     return dataFromJson.users;
 }

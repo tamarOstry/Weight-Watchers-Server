@@ -1,4 +1,5 @@
 const userService=require('../services/user')
+
 exports.getAll=async function(req,res,next){
     try{
        const users=await userService.getAll();
