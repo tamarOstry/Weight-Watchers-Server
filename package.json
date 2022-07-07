@@ -1,4 +1,12 @@
 {
+    "name": "tamar&esty",
+    "author": "Ilya",
+    "description": "A test app for our board game",
+    "version": "0.0.1",
+    "private": false,
+    "scripts": {
+      "start": "node app.js"
+    },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -6,8 +14,5 @@
     "fs-promise": "^2.0.3",
     "nodemon": "^2.0.18",
     "uuid": "^8.3.2"
-  },
-  "scripts": {
-    "start": "node app.js"
   }
 }
