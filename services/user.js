@@ -11,8 +11,10 @@ module.exports.getAll=async()=>{
     return dataFromJson.users;
 }
 
+
 module.exports.getBySearch=async()=>{
 
+    
 }
 
 module.exports.getById=async (userId)=>{
