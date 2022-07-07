@@ -3,9 +3,13 @@ const app = express();
 const account = require('./routes/account');
 const user = require('./routes/user');
 const meeting = require('./routes/meeting');
-// const diary = require('./routes/diary');
+const diary = require('./routes/diary');
+const cors = require('cors');
+
 require('dotenv').config();
 const port = process.env.PORT;
+app.use(cors());
+
 
 app.use(express.json());
 app.use('/account', account);
