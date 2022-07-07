@@ -10,15 +10,18 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use('/account', account);
 app.use('/user', user);
-app.use('/meeting', meeting);
-// app.use('/diary', diary);
+app.use('/meeting ', meeting);
+app.use('/diary', diary);
 
 app.use((req,res)=>{
     res.status(404).sendFile(path.join(__dirname,'./static/HTML/404.html'));
 })
 
 app.use((err, req, res, next) => {
-    res.status(500).send(`something failed${err}`)
+    debugger
+    console.log(err);
+    res.status(500).send('something failed');
+
 })
 
 app.listen(port, () => {
