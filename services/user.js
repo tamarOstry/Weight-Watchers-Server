@@ -19,7 +19,6 @@ module.exports.getById=async (userId)=>{
     const data = await getData() ;
     const users=data.users|| [];
     const user=users.find(user => user.id==userId);
-    console.log(user);
     return user;
 }
 
