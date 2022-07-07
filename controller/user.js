@@ -36,41 +36,31 @@ exports.getById=async function(req,res,next){
 exports.update=async function(req,res,next){
     try{
         const userId = req.params.id;
-        const {password,firstName,lastName,address,phone,email,hight,weight,eatingDiary} = req.body;
-        const data={
-            password:password,
-            firstName:firstName,
-            lastName:lastName,
-            address:address,
-            phone:phone,
-            email:email,
-            hight:hight,
-            weight:weight,
-            eatingDiary:eatingDiary
-        }
-        const updateUser = await userService.update(data);
-        res.send(updateUser);
+        const user= req.body;
+        await userService.update(userId,user);
+        res.send();
     }
     catch(err){
       next(err)
     };
 }
 
-exports.add= async function(req,res,next){
+module.exports.add= async function(req,res,next){
     try{
-        const user = userService.add(req.body);
-        res.send(user)
+        const user=await userService.add(req.body); 
+        res.send(user);
     }
     catch(err){
       next(err)
     };
+     
 }
 
 exports.delete=async function(req,res,next){
     try{
         const userId = req.params.id;
         await userService.delete(userId);
-        res.send(`removed`);
+        res.send();
     }
     catch(err){
       next(err)
