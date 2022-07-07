@@ -12,17 +12,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"app.js"
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tamarOstry/Weight-Watchers-Server.git"
-  },
-  "author": "",
+  "author": "me",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tamarOstry/Weight-Watchers-Server/issues"
-  },
-  "homepage": "https://github.com/tamarOstry/Weight-Watchers-Server#readme",
   "description": ""
 }
