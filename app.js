@@ -10,6 +10,7 @@ require('dotenv').config();
 const port = process.env.PORT;
 app.use(cors());
 
+export NODE_TLS_REJECT_UNAUTHORIZED='0'
 
 app.use(cors());
 app.use(express.json());
