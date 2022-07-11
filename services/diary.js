@@ -18,7 +18,7 @@ module.exports.addDaySummary = async (userId, newDiary) => {
         }
     });
     await updateData(dataFromJson);
-    return "sucssses🤯🤯🤯";
+    return 'sucssses🤯🤯🤯';
 }
 
 module.exports.updateDaySummary = async (userId, dayId, newDiary) => {
@@ -28,9 +28,9 @@ module.exports.updateDaySummary = async (userId, dayId, newDiary) => {
             // let eatingDiary = user.eatingDiary;
             user.eatingDiary.forEach(eatDiary => {
                 if (eatDiary.date == dayId) {
-                    Object.assign(eatDiary, newDiary);  
+                    Object.assign(eatDiary, newDiary);
                 }
-            });      
+            });
         }
     })
     await updateData(dataFromJson);
@@ -43,5 +43,5 @@ module.exports.deleteDaySummary = async (userId, dayId) => {
     const newDiary = newDataFromJson.eatingDiary.filter(Diary => Diary.date != dayId);
     newDataFromJson.eatingDiary = newDiary;
     await updateData(dataFromJson);
-return "delete from data"
+    return 'delete from data'
 }
