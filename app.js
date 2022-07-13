@@ -56,9 +56,8 @@ app.use((err, req, res, next) => {
     debugger
     console.log(err);
     res.status(500).send('something failed');
-
 })
 
-app.listen(port || 3000, () => {
+app.listen(port , () => {
     console.log(`the server go on ${port}`)
 })
