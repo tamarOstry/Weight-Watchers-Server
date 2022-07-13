@@ -90,7 +90,7 @@ const searchFunc = (arr, inputToSearch) => {
     console.log(ans);
     return ans;
 }
-////
+
 const cutToSearch = (query) => {
     let search = ['', { minWeight: -1, maxWeight: -1 }, { minBmi: -1, maxBmi: -1 }, ''];
     let searchName = '';
