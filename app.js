@@ -45,8 +45,9 @@ app.use(express.json());
 
 app.use('/account', account);
 app.use('/user', user);
-app.use('/meeting ', meeting);
+app.use('/meeting', meeting);
 app.use('/diary', diary);
+
 app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, './static/HTML/404.html'));
 })

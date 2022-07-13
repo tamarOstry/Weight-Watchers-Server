@@ -6,7 +6,6 @@ const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(
 const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
 
 module.exports.getAll = async () => {
-    debugger
     const dataFromJson = await getData();
     return dataFromJson.users;
 }
@@ -32,11 +31,13 @@ module.exports.update = async (userId, userFromBody) => {
             user.password = userFromBody.password;
             user.firstName = userFromBody.firstName,
                 user.lastName = userFromBody.lastName,
-                user.address = userFromBody.address,
+                user.address.city = userFromBody.city,
+                user.address.street = userFromBody.street,
+                user.address.number = userFromBody.number,
                 user.phone = userFromBody.phone,
                 user.email = userFromBody.email,
                 user.hight = userFromBody.hight,
-                user.weight = userFromBody.weight,
+                user.weight.meeting[user.weight.meeting.length - 1].Weight = userFromBody.weight,
                 user.eatingDiary = userFromBody.eatingDiary
         }
     });

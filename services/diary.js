@@ -4,7 +4,6 @@ const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(
 const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
 
 module.exports.getDiary = async (userId) => {
-    debugger
     const data = await getData();
     const user = data.users.find(user => user.id == userId);
     return user.eatingDiary;
