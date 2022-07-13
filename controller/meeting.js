@@ -45,7 +45,7 @@ exports.update = async function (req, res, next) {
 
 exports.add = async function (req, res, next) {
   try {
-    const user = userService.add(req.body);
+    const user = meetingService.add(req.body);
     res.send(user)
   }
   catch (err) {

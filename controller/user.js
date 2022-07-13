@@ -10,18 +10,6 @@ exports.getAll = async function (req, res, next) {
   };
 }
 
-exports.getBySearch = async function (req, res, next) {
-  try {
-    const email = req.params.email;
-    const password = req.params.password;
-    const user = await userService.getByEmailPassword(email, password);
-    res.send(user);
-  }
-  catch (err) {
-    next(err)
-  };
-}
-
 exports.getById = async function (req, res, next) {
   try {
     const userId = req.params.id;
@@ -61,6 +49,16 @@ exports.delete = async function (req, res, next) {
     const userId = req.params.id;
     await userService.delete(userId);
     res.send();
+  }
+  catch (err) {
+    next(err)
+  };
+}
+
+exports.getBySearch = async function (req, res, next) {
+  try {
+    const users = await userService.getBySearch(searches);
+    res.send(users);
   }
   catch (err) {
     next(err)

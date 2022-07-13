@@ -41,15 +41,14 @@ module.exports.update = async (userId, userFromBody) => {
     await updateData(allDataToJson);
 }
 
-module.exports.add = async (user) => {
-    const id = uuidv4();
-    user.id = id;
+module.exports.add = async (usersMeeting) => {
     const data = await getData() || [];
     const users = data.users;
-    const exist = await users.find(u => u.email === user.email);
-    if (exist)
-        throw new Error('user already exists');
-    users.push(user);
+    users.forEach(user => {
+        usersMeeting.forEach(userMeat => {
+            user.id===userMeat.userId ? user.weight.meeting.push({"Weight":userMeat.Weight,"date":userMeat.date}):null
+        });
+    });
     const allDataToJson = { 'users': users, 'manager': data.manager };
     await updateData(allDataToJson);
 }
