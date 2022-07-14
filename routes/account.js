@@ -31,6 +31,10 @@ const controller = require('../controller/account');
 // *           $ref: '#/definitions/account'
 // */
  route.post('/', controller.getByEmailPassword);
+
+
+
+ 
 //route.get('/:email/:password', controller.getByEmailPassword);
 
 module.exports = route;
