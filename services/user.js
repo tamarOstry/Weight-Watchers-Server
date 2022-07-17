@@ -10,14 +10,9 @@ const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(d
 module.exports.getAll = async () => {
     const users = await userModel.find();
     return users;
-    // const dataFromJson = await getData();
-    // return dataFromJson.users;
 }
 
 module.exports.getById = async (userId) => {
-    // const data = await getData();
-    // const users = data.users || [];
-    // const user = users.find(user => user.id == userId);
     const user = await userModel.findOne(ObjectId(userId));
     return user;
 }
