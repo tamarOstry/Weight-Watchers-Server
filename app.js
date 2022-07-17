@@ -6,8 +6,11 @@ const meeting = require('./routes/meeting');
 const diary = require('./routes/diary');
 const cors = require('cors');
 const swaggerUi = require("swagger-ui-express");
+const db = require("./db/db");
+const logger = require('./log/logger');
 // const swaggerJsDoc = require("swagger-jsdoc");
 swaggerDocument = require("./swagger.json");
+
 require('dotenv').config();
 const port = process.env.PORT;
 // const swaggerOptions = {
@@ -21,12 +24,6 @@ const port = process.env.PORT;
 //   };
 //   const swaggerDoc = swaggerJsDoc(swaggerOptions);
 //   console.log(swaggerDoc);
-app.use(cors());
-app.use(
-    '/api-docs',
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerDocument)
-);
 //   /**
 //    * @swagger 
 //    * /user
@@ -40,9 +37,11 @@ app.use(
 // //         title: 'Welcome'
 // //     }])
 // // })
+db.connect();
 app.use(cors());
 app.use(express.json());
 
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDocument));
 app.use('/account', account);
 app.use('/user', user);
 app.use('/meeting', meeting);
@@ -53,11 +52,10 @@ app.use((req, res) => {
 })
 
 app.use((err, req, res, next) => {
-    debugger
-    console.log(err);
+    logger.error(err.message);
     res.status(500).send('something failed');
 })
 
 app.listen(port , () => {
-    console.log(`the server go on ${port}`)
+    logger.info(`the server go on ${port}`)
 })

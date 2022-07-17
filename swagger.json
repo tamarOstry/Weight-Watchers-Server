@@ -19,6 +19,14 @@
     {
       "name": "Meetings",
       "description": "API for meetings in the system"
+    },
+    {
+      "name": "Diary",
+      "description": "API for diary in the system"
+    },
+    {
+      "name": "Account",
+      "description": "API for account in the system"
     }
   ],
   "schemes": ["http"],
@@ -290,8 +298,32 @@
               }
             }
           }
-        }
+        },
+      "/diary/{id}": {
+        "get": {
+          "summary": "get the diary by id",
+          "description": "get the diary",
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "meeting id that needs to be deleted",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "array"
+                }
+              }
+            }
+          }
       }
     }
+}
   
 

@@ -9,7 +9,7 @@ exports.getAll = async function (req, res, next) {
     next(err)
   };
 }
-
+ 
 exports.getById = async function (req, res, next) {
   try {
     const userId = req.params.id;
@@ -57,7 +57,7 @@ exports.delete = async function (req, res, next) {
 
 exports.getBySearch = async function (req, res, next) {
   try {
-    const users = await userService.getBySearch(searches);
+    const users = await userService.getBySearch(req.body);
     res.send(users);
   }
   catch (err) {

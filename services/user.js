@@ -1,19 +1,24 @@
 const fs = require('fs/promises');
 const uuid = require('uuid');
 const uuidv4 = uuid.v4;
+const userModel = require('../models/user');
+const { ObjectId } = require('mongodb');
 
 const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(data));
 const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
 
 module.exports.getAll = async () => {
-    const dataFromJson = await getData();
-    return dataFromJson.users;
+    const users = await userModel.find();
+    return users;
+    // const dataFromJson = await getData();
+    // return dataFromJson.users;
 }
 
 module.exports.getById = async (userId) => {
-    const data = await getData();
-    const users = data.users || [];
-    const user = users.find(user => user.id == userId);
+    // const data = await getData();
+    // const users = data.users || [];
+    // const user = users.find(user => user.id == userId);
+    const user = await userModel.findOne(ObjectId(userId));
     return user;
 }
 
@@ -118,7 +123,7 @@ const cutToSearch = (query) => {
     console.log(search);
     return search;
 }
-const getBySearch = async (searches) => {
+module.exports.getBySearch = async (searches) => {
     // let searchArr = cutToSearch(query);
     console.log(searches);
     const data = await getData();
