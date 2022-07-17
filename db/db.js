@@ -9,7 +9,7 @@ class db{
    async connect(){
        const url= CONNECTION_STRING;
        await mongoose.connect(url);
-       console.log(`connected successfully with mongoose`);
+       console.log(`connected successfully with mongoose💞💥💔`);
    };
 }
 
