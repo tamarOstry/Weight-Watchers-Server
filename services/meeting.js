@@ -1,8 +1,4 @@
-const fs = require('fs/promises');
-
-
-const getData = async () => fs.readFile('./users.json').then(data => JSON.parse(data));
-const updateData = async (data) => fs.writeFile('./users.json', JSON.stringify(data));
+const meetingDB=require('../db/meeting');
 
 module.exports.getAll = async () => {
     const dataFromJson = await getData();
@@ -42,15 +38,7 @@ module.exports.update = async (userId, userFromBody) => {
 }
 
 module.exports.add = async (usersMeeting) => {
-    const data = await getData() || [];
-    const users = data.users;
-    users.forEach(user => {
-        usersMeeting.forEach(userMeat => {
-            user.id===userMeat.userId ? user.weight.meeting.push({"Weight":userMeat.Weight,"date":userMeat.date}):null
-        });
-    });
-    const allDataToJson = { 'users': users, 'manager': data.manager };
-    await updateData(allDataToJson);
+   return await meetingDB.add(usersMeeting);
 }
 
 module.exports.delete = async (userId) => {
