@@ -7,7 +7,7 @@ module.exports.getAll = async () => {
 }
 
 module.exports.getById = async (userId) => {
-    const user = await userModel.findOne(ObjectId(userId));
+    const user = await userModel.findOne({_id:ObjectId(userId)});
     return user;
 }
 
