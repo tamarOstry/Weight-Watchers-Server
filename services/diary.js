@@ -15,26 +15,12 @@ module.exports.addDaySummary = async (userId, newDiary) => {
 }
 
 module.exports.updateDaySummary = async (userId, dayId, newDiary) => {
-    const dataFromJson = await getData();
-    dataFromJson.users.forEach(user => {
-        if (user.id == userId) {
-            // let eatingDiary = user.eatingDiary;
-            user.eatingDiary.forEach(eatDiary => {
-                if (eatDiary.date == dayId) {
-                    Object.assign(eatDiary, newDiary);
-                }
-            });
-        }
-    })
-    await updateData(dataFromJson);
-    return (dataFromJson)
+    const daySummary = await diaryDb.updateDaySummary(userId,diaryId, newDiary);
+    return daySummary;
+
 }
 
-module.exports.deleteDaySummary = async (userId, dayId) => {
-    const dataFromJson = await getData();
-    const newDataFromJson = dataFromJson.users.find(user => user.id == userId)
-    const newDiary = newDataFromJson.eatingDiary.filter(Diary => Diary.date != dayId);
-    newDataFromJson.eatingDiary = newDiary;
-    await updateData(dataFromJson);
-    return 'delete from data'
+module.exports.deleteDaySummary = async (userId, diaryId) => {
+    const daySummary = await diaryDb.deleteDaySummary(userId,diaryId);
+    return 'delete from data'+daySummary ;
 }
