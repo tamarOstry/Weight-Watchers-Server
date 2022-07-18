@@ -30,16 +30,16 @@ const meetSchema=new schema({
     }
 })
 
-const mealSchema=new schema({
-    foods: [String] 
-})
+
 
 const diarySchema=new schema({
     date: {
         type: Date,
          //default:new Date(),
     },
-    meals: [mealSchema]
+    meals:[
+        [String]
+    ]
 })
 
 const userSchema = new schema({ 
@@ -64,7 +64,8 @@ const userSchema = new schema({
     email: {
         type: String,
         unique:true,
-        validate:[isEmail,'please insert valid']
+        validate:[isEmail,'please insert valid'],
+        match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 'Please fill a valid email address']
     },
     hight: {
         type: Number,
