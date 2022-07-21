@@ -17,7 +17,7 @@ const port = process.env.PORT||8000;
 const config = {
     authRequired: false,
     auth0Logout: true,
-    secret: 'a long, randomly-generated string stored in env',
+    secret: 'eZR6s1nu5ioNVU1sToe7HBVOV0A5Gbr5Yag-oaHm7PxUb7m-OFhd99kGeIXmuAlQ',
     baseURL: 'http://localhost:3000',
     clientID: '3VL512NdKNnH2t7rPSBfMRagCeJ5Kbd2',
     issuerBaseURL: 'https://dev-rsbbasni.us.auth0.com'
