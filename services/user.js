@@ -26,27 +26,29 @@ module.exports.delete = async (userId) => {
 }
 
 
-byWeightFunc = (users, min, max) => {
-    const ans = users.filter(user => (user.weight.startWeight > min) && (user.weight.startWeight < max));
+byWeightFunc = async(users, min, max) => {
+    const ans = await userDB.byWeightFunc(min, max);
+    // const ans = users.filter(user => (user.weight.startWeight > min) && (user.weight.startWeight < max));
     return ans;
 }
-byProcessFunc = (arr) => {
+byProcessFunc = async(arr) => {
     console.log('byProcessFunc');
     const ans = arr.filter(f => f.weight.startWeight > (f.weight.meetings[f.weight.meetings.length - 1].weight));
     console.log(ans);
     return ans;
 }
-byBMIFunc = (users, bmiMin, bmiMax) => {
+byBMIFunc = async(users, bmiMin, bmiMax) => {
     const ans = users.filter(user => (user.weight.startWeight / 
     (user.hight* user.hight) > bmiMin) &&
         (user.weight.startWeight / (user.hight* user.hight) < bmiMax));
     return ans;
 }
-byCityFunc = (users, city) => {
-    const ans = users.filter(user => user.address.city === city);
+byCityFunc = async(users, city) => {
+    const ans = await userDB.searchByCity(city);
+    // const ans = users.filter(user => user.address.city === city);
     return ans;
 }
- searchFunc = (users, inputToSearch) => {
+ searchFunc = async(users, inputToSearch) => {
     let ans = users.filter(user => user.id === inputToSearch ||
         user.firstName === inputToSearch || user.lastName === inputToSearch ||
         user.address.city === inputToSearch || user.address.street === inputToSearch ||

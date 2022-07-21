@@ -39,3 +39,24 @@ module.exports.delete = async (userId) => {
     const userToDelete = await userModel.deleteOne(id);
     return`removed`;
 }
+
+module.exports.searchFunc = async (city) => {
+    const users = await userModel.find({ "address.city": city });
+    return users;
+}
+
+module.exports.byWeightFunc = async (minWeight,maxWeight) => {
+    // const users = await userModel.find({ $and: [{ "weight.startWeight": { $gt: minWeight } }, {"weight.startWeight": { $lt: maxWeight } }] })
+    const users = await userModel.find({$and:[{'weight.startWeight': { $gte: minWeight}} ,{'weight.startWeight':{$lt: maxWeight}}]});
+    return users;
+}
+
+module.exports.byBMIFunc = async (city) => {
+    const users = await userModel.find({ "address.city": city });
+    return users;
+}
+
+module.exports.searchByCity = async (city) => {
+    const users = await userModel.find({ "address.city": city });
+    return users;
+}
