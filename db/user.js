@@ -40,13 +40,16 @@ module.exports.delete = async (userId) => {
     return`removed`;
 }
 
-module.exports.searchFunc = async (city) => {
-    const users = await userModel.find({ "address.city": city });
+module.exports.searchFunc = async (inputSearch) => {
+    const users =await userModel.find({
+    $or:[{firstName: /inputSearch/ ,lastName: /inputSearch/,
+          password:/inputSearch/,address:/inputSearch/,phone:/inputSearch/,
+          email:/inputSearch/,hight:/inputSearch/
+    }]})
     return users;
 }
 
 module.exports.byWeightFunc = async (minWeight,maxWeight) => {
-    // const users = await userModel.find({ $and: [{ "weight.startWeight": { $gt: minWeight } }, {"weight.startWeight": { $lt: maxWeight } }] })
     const users = await userModel.find({$and:[{'weight.startWeight': { $gte: minWeight}} ,{'weight.startWeight':{$lt: maxWeight}}]});
     return users;
 }
@@ -60,3 +63,13 @@ module.exports.searchByCity = async (city) => {
     const users = await userModel.find({ "address.city": city });
     return users;
 }
+
+// module.exports.search = async (inputSearch,minWeight,maxWeight,city,minBmi,maxBmi) => {
+//     const users =await userModel.find(
+//     {$and[]
+//     {$or:[{firstName: /inputSearch/ ,lastName: /inputSearch/,
+//           password:/inputSearch/,address:/inputSearch/,phone:/inputSearch/,
+//           email:/inputSearch/,hight:/inputSearch/
+//     }]})
+//     return users;
+// }
