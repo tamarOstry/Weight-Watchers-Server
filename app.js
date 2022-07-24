@@ -11,26 +11,27 @@ const logger = require('./log/logger');
 const { auth } = require('express-openid-connect');
 swaggerDocument = require("./swagger.json");
 const { requiresAuth } = require('express-openid-connect');
-const clientUrl = 'http://127.0.0.1:5500/src/html/homeUser.html'
 require('dotenv').config();
 
-const port = process.env.PORT;
-const config = {
-    authRequired: false,
-    auth0Logout: true,
-    secret: 'a long, randomly-generated string stored in env',
-    baseURL: 'http://localhost:3000',
-    clientID: 'WERt8QG4W2AUSnG3KGo3YhD3qwqGoOcH',
-    issuerBaseURL: 'https://dev-d1mqdua2.us.auth0.com'
-};
+const clientUrl = 'http://127.0.0.1:5500/src/html/homeUser.html';
+const {PORT,ISSUER_BASE_URL,CLIENT_ID,BASE_URL,SECRET}=process.env;
+
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 db.connect();
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: SECRET,
+  baseURL: BASE_URL,
+  clientID: CLIENT_ID,
+  issuerBaseURL: ISSUER_BASE_URL
+};
+
 app.use(cors());
 app.use(express.json());
-// auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
-// req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
     console.log(req.cookies)
     if(req.oidc.isAuthenticated()){
@@ -55,13 +56,12 @@ app.use('/meeting', meeting);
 app.use('/diary', diary);
 
 
-
 app.use((err, req, res, next) => {
     logger.error(err.message);
     res.status(500).send('something failed');
 })
 
-app.listen(port, () => {
-    logger.info(`the server go on ${port}`)
+app.listen(PORT, () => {
+    logger.info(`the server go on ${PORT}`)
 })
 

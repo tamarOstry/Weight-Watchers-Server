@@ -1,9 +1,60 @@
 const userService=require('./user');
+const userModel = require('../models/user');
+const sinon=require('sinon');
 
 describe('user test',()=>{
-    test('get all',()=>{
-        let users = userService.getAll().then(()=>{
-            expect(JSON.parse(users)).toBe([
+    afterEach(()=>{
+        sinon.restore();
+    });
+
+    describe('user service ',()=>{
+        it('get user by id',async()=>{
+            const id='62d08f249f381b7fca95f4c1';
+            const user={
+                "weight": {
+                    "startWeight": 73,
+                    "meetings": [
+                        {
+                            "Weight": 55.6,
+                            "date": "2002-05-08",
+                            "_id": "62d3edee194a814e40cfb3b8"
+                        },
+                        {
+                            "Weight": 55.6,
+                            "date": "2002-05-08",
+                            "_id": "62d3f05c4954a010516f35c0"
+                        },
+                        {
+                            "Weight": 55.6,
+                            "date": "2002-05-08",
+                            "_id": "62d3f1924954a010516f35e6"
+                        }
+                    ]
+                },
+                "_id": "62d08f249f381b7fca95f4c2",
+                "password": "13",
+                "firstName": "yehuditi",
+                "lastName": "cohen",
+                "address": {
+                    "city": "rechovot",
+                    "street": "arimon",
+                    "number": 110,
+                    "_id": "62d3eded194a814e40cfb3b7"
+                },
+                "phone": "0558963214",
+                "email": "rk@gmail.com",
+                "hight": 1.75,
+                "eatingDiary": [],
+                "updatedAt": "2022-07-17T11:25:06.066Z"
+            };
+            sinon.stub(userModel,'findOne').returns(user);
+            await userService.getById(id).then((returnUser)=>{
+                expect(returnUser).toEqual(user);
+            })
+
+        });
+        it('get all users',async()=>{
+            const users  = [
                 {
                     "weight": {
                         "startWeight": 40.5,
@@ -199,7 +250,14 @@ describe('user test',()=>{
                     "updatedAt": "2022-07-17T08:43:00.412Z",
                     "__v": 0
                 }
-            ])
+            ];
+            sinon.stub(userModel,'find').returns(users);
+            await userService.getAll().then((returnUsers)=>{
+                expect(returnUsers).toBe(users);
+            })
+        })
+        it('searches users',()=>{
+            
         })
     })
 })
